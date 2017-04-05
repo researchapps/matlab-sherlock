@@ -69,11 +69,13 @@ singularity exec -B /share:/share researchapps-matlab-sherlock-master.img which 
 ```
 
 Now let's run a script:
-echo "print(\"Hello\")" >> hello.m
-singularity exec -B /share:/share researchapps-matlab-sherlock-master.img matlab -nodisplay -nosplash -nodesktop -r hello.m
+
 ```bash
+echo "disp('Hello World')" >> hello.m
+singularity exec -B /share:/share researchapps-matlab-sherlock-master.img matlab -nodisplay -nosplash -nodesktop -r hello.m
+```
 
 Note that the above takes forever to do, since it's starting up Matlab, etc. It was very slow for me to run.
-```
+
 
 There it is! So now we can give some input script to matlab as you would normally, but it will run inside the container, with whatever dependency libraries for matlab are required.
